@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public class Ejercicio2 {
+public class Ejercicio9 {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         System.out.println("ingrese la primer nota");
@@ -9,25 +9,26 @@ public class Ejercicio2 {
         float nota2 = input.nextFloat();
         System.out.println("ingrese la tercer nota");
         float nota3 = input.nextFloat();
-        float media = (nota1+nota2+nota3)/3;
-        System.out.println("el promedio es:  "+ media);
-       
-       
-       if (media >= 7) {
+        float promedio = (nota1+nota2+nota3)/3;
 
+        if (promedio > 7) {
             System.out.println("promocionado");
             
-            
-        }else{
-            System.out.println("reprobado");
         }
-
-        input.close();
-
-
-         
+        if (promedio >=4 && promedio <= 7) {
+            System.out.println("regular");
+        }
+        if (promedio < 4) {
+            System.out.println("reprobado");
             
         
+            
+        }
+        
+        
+            
+        
+        input.close();
 
     }
 }

@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class EjercicioNuevo {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+        Scanner input = new Scanner(System.in);
         System.out.println("Igrese el primer numero ");
         int Inicio = input.nextInt();
         System.out.println("ingrese el segundo numero ");
@@ -29,7 +29,8 @@ public class EjercicioNuevo {
             }
         }
         System.out.println("Hay " + (int) (Math.floor(contPrimos / 2)) + " pares de primos en total");
-        
+        input.close();
+
 
     }
 }
