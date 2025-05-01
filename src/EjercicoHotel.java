@@ -14,10 +14,10 @@ public class EjercicoHotel {
         while (true) {
             mostrarEstado();
 
-            System.out.println("\n1) realizar reserva");
-            System.out.println("2) realizar cancelacion");
-            System.out.println("3) detalles de las habitaciones");
-            System.out.println("4) cerrar");
+            System.out.println("1 realizar reserva");
+            System.out.println("2 realizar cancelacion");
+            System.out.println("3 detalles de las habitaciones");
+            System.out.println("4 cerrar");
             System.out.print("Opción: ");
             int opcion = scanner.nextInt();
 
@@ -34,7 +34,7 @@ public class EjercicoHotel {
                 } else if (cliente[piso][col] != null) {
                     System.out.println("Habitación ocupada.");
                 } else {
-                    scanner.nextLine(); // limpiar buffer
+                    scanner.nextLine(); 
                     System.out.print("Nombre del cliente: ");
                     cliente[piso][col] = scanner.nextLine();
                     System.out.print("Noches a reservar: ");
@@ -43,7 +43,7 @@ public class EjercicoHotel {
                     precio[piso][col] = scanner.nextDouble();
                     System.out.println("Reserva confirmada para habitación " + numHab);
                     double total = noches[piso][col] * precio[piso][col];
-                    System.out.printf("Total a pagar: $%.2f%n", total);
+                    System.out.println("Total a pagar: $" + total);
                 }
 
             } else if (opcion == 2) {
@@ -82,35 +82,34 @@ public class EjercicoHotel {
             for (int j = 0; j < habitacionesPorPiso; j++) {
                 int numHab = (i + 1) * 100 + (j + 1);
                 if (cliente[i][j] != null) {
-                    System.out.printf("Hab %d: OCUPADA (%s)%n", numHab, cliente[i][j]);
+                    System.out.println("Hab " + numHab + ": OCUPADA (" + cliente[i][j] + ")");
                 } else {
-                    System.out.printf("Hab %d: LIBRE%n", numHab);
+                    System.out.println("Hab " + numHab + ": LIBRE");
                 }
             }
         }
     }
 
     static void generarReporteFinal() {
-        System.out.println("\n--- Reporte Final ---");
-        StringBuilder disponibles = new StringBuilder();
-        StringBuilder ocupadas = new StringBuilder();
+        System.out.println("Reporte Final");
+        String disponibles = "";
+        String ocupadas = "";
 
         for (int i = 0; i < pisos; i++) {
             for (int j = 0; j < habitacionesPorPiso; j++) {
                 int numHab = (i + 1) * 100 + (j + 1);
                 if (cliente[i][j] != null) {
                     double total = noches[i][j] * precio[i][j];
-                    System.out.printf("Cliente: %s - Habitación: %d - Total a pagar: %.1f%n",
-                            cliente[i][j], numHab, total);
-                    ocupadas.append(numHab).append(", ");
+                    System.out.println("Cliente: " + cliente[i][j] + " - Habitación: " + numHab + " - Total a pagar: " + total);
+                    ocupadas += numHab + ", ";
                 } else {
-                    disponibles.append(numHab).append(", ");
+                    disponibles += numHab + ", ";
                 }
             }
         }
 
-        if (disponibles.length() > 0) disponibles.setLength(disponibles.length() - 2);
-        if (ocupadas.length() > 0) ocupadas.setLength(ocupadas.length() - 2);
+        if (disponibles.length() > 0) disponibles = disponibles.substring(0, disponibles.length() - 2);
+        if (ocupadas.length() > 0) ocupadas = ocupadas.substring(0, ocupadas.length() - 2);
 
         System.out.println("Habitaciones disponibles: " + disponibles);
         System.out.println("Habitaciones ocupadas: " + ocupadas);
