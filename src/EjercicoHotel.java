@@ -16,7 +16,7 @@ public class EjercicoHotel {
 
             System.out.println("1 realizar reserva");
             System.out.println("2 realizar cancelacion");
-            System.out.println("3 detalles de las habitaciones");
+            System.out.println("3 detalles de habitaciones");
             System.out.println("4 cerrar");
             System.out.print("Opción: ");
             int opcion = scanner.nextInt();
