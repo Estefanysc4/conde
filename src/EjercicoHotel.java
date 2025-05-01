@@ -14,10 +14,10 @@ public class EjercicoHotel {
         while (true) {
             mostrarEstado();
 
-            System.out.println("\n1) Reservar");
-            System.out.println("2) Cancelar");
-            System.out.println("3) Reporte");
-            System.out.println("4) Salir");
+            System.out.println("\n1) realizar reserva");
+            System.out.println("2) realizar cancelacion");
+            System.out.println("3) detalles de las habitaciones");
+            System.out.println("4) cerrar");
             System.out.print("Opción: ");
             int opcion = scanner.nextInt();
 
